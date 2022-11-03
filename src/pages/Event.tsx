@@ -3,7 +3,7 @@ import {FC} from 'react'
 const Event : FC = () => {
     return (
         <div>
-            login
+            Event
         </div>
     );
 };
