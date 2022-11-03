@@ -2,14 +2,12 @@ import { configureStore } from '@reduxjs/toolkit'
 import {combineReducers} from 'redux'
 import thunk from 'redux-thunk'
 
-const rootReducer = combineReducers({
+import reducers from './reducers/index'
 
-})
+const rootReducer = combineReducers(reducers)
 
 export const store = configureStore({
-    reducer: {
-        rootReducer
-    },
+    reducer: rootReducer,
     middleware: [thunk],
 })
 

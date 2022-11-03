@@ -1,5 +1,6 @@
 import { FC } from "react";
 import {Routes, Route, Navigate} from 'react-router-dom'
+import { useTypedSelector } from "../hooks/useTypedSelector";
 
 import {
     publickRoutes,
@@ -8,14 +9,17 @@ import {
 } from '../routes/index'
 
 const AppRoutes :FC = () => {
-    const auth = false
+    const {isAuth} = useTypedSelector(state => state.authReducer)
+    
     return (
-        auth 
+        isAuth 
             ?
         <Routes>
             {privateRoutes.map((route, i) => {
+                
                 return (
                     <Route key={i} path={route.path} element={<route.component/>}/>
+                    
                 )
             }) }
             <Route path="*" element={<Navigate to={RoutesNames.EVENT} replace={true}/>}/>
