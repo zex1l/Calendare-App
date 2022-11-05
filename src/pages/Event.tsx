@@ -1,9 +1,10 @@
 import {FC} from 'react'
+import EventCalendar from '../components/EventCalendar';
 
 const Event : FC = () => {
     return (
-        <div>
-            Event
+        <div className='p-10'>
+            <EventCalendar/>
         </div>
     );
 };

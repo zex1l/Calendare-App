@@ -1,9 +1,17 @@
 import { useNavigate } from "react-router-dom";
+import { useActions } from "../hooks/useActions";
+import { useAppDispatch, useTypedSelector } from "../hooks/useTypedReduxr";
+import { AuthActionCreators } from "../store/reducers/auth/action-creator";
 
 const NavBar = () => {
-    const auth = false
+    const auth = useTypedSelector(state => state.authReducer.isAuth)
 
     const navigate = useNavigate()
+    const {logout} = useActions()
+
+    const onLogout = () => {
+        logout()
+    }
     return (
         <header className='p-5 bg-slate-600 text-white'> 
             <div className='flex justify-end items-center'>
@@ -12,7 +20,7 @@ const NavBar = () => {
                         <>
                         <nav className='flex justify-center'>
                             <p className='mr-4 cursor-pointer'>Maks</p>
-                            <p className='mr-4 cursor-pointer'>Выйти</p>
+                            <p className='mr-4 cursor-pointer' onClick={onLogout}>Выйти</p>
                          </nav>
                             
                         </>

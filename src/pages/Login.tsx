@@ -1,10 +1,11 @@
 import { FC } from "react";
+import Form from "../components/Form";
 
 
 const Login : FC = () => {
     return (
-        <div>
-            Login
+        <div className='container'>
+            <Form/>
             
         </div>
     );

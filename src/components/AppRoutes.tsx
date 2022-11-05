@@ -1,6 +1,6 @@
 import { FC } from "react";
 import {Routes, Route, Navigate} from 'react-router-dom'
-import { useTypedSelector } from "../hooks/useTypedSelector";
+import { useTypedSelector } from "../hooks/useTypedReduxr";
 
 import {
     publickRoutes,
@@ -26,13 +26,13 @@ const AppRoutes :FC = () => {
         </Routes>
             :
         <Routes>
-        {publickRoutes.map((route, i) => {
-            return (
-                <Route key={i} path={route.path} element={<route.component/>}/>
-            )
-        }) }
-        <Route path="*" element={<Navigate to={RoutesNames.LOGIN} replace={true}/>}/>
-    </Routes>
+            {publickRoutes.map((route, i) => {
+                return (
+                    <Route key={i} path={route.path} element={<route.component/>}/>
+                )
+            }) }
+            <Route path="*" element={<Navigate to={RoutesNames.LOGIN} replace={true}/>}/>
+        </Routes>
     );
 };
 
